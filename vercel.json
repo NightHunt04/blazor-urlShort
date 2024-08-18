@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "public": true,
+    "builds": [
+      {
+        "src": "release/wwwroot",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/release/wwwroot/$1"
+      },
+      {
+        "handle": "filesystem"
+      },
+      {
+        "src": "/.*",
+        "dest": "/release/wwwroot/index.html"
+      }
+    ]
+  }

@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/projectbundle/WebApp.Frontend.bundle.scp.css",
+      "PackagePath": "staticwebassets/WebApp.Frontend.bundle.scp.css"
+    },
+    {
+      "Id": "/home/anton/Desktop/c#/WebApp.Frontend/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.WebApp.Frontend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.WebApp.Frontend.props",
+      "PackagePath": "build\\WebApp.Frontend.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.WebApp.Frontend.props",
+      "PackagePath": "buildMultiTargeting\\WebApp.Frontend.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.WebApp.Frontend.props",
+      "PackagePath": "buildTransitive\\WebApp.Frontend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

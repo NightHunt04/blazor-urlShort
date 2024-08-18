@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "7y8E+GW/5lfC4jqPty1q6vpvq41WIceqVkiFGJT8YF8=",
+  "Source": "WebApp.Frontend",
+  "BasePath": "_content/WebApp.Frontend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebApp.Frontend/wwwroot",
+      "Source": "WebApp.Frontend",
+      "ContentRoot": "/home/anton/Desktop/c#/WebApp.Frontend/wwwroot/",
+      "BasePath": "_content/WebApp.Frontend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/bundle/WebApp.Frontend.styles.css",
+      "SourceId": "WebApp.Frontend",
+      "SourceType": "Computed",
+      "ContentRoot": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/bundle/",
+      "BasePath": "_content/WebApp.Frontend",
+      "RelativePath": "WebApp.Frontend.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/bundle/WebApp.Frontend.styles.css"
+    },
+    {
+      "Identity": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/projectbundle/WebApp.Frontend.bundle.scp.css",
+      "SourceId": "WebApp.Frontend",
+      "SourceType": "Computed",
+      "ContentRoot": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/projectbundle/",
+      "BasePath": "_content/WebApp.Frontend",
+      "RelativePath": "WebApp.Frontend.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/home/anton/Desktop/c#/WebApp.Frontend/obj/Release/net8.0/scopedcss/projectbundle/WebApp.Frontend.bundle.scp.css"
+    },
+    {
+      "Identity": "/home/anton/Desktop/c#/WebApp.Frontend/wwwroot/app.css",
+      "SourceId": "WebApp.Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/anton/Desktop/c#/WebApp.Frontend/wwwroot/",
+      "BasePath": "_content/WebApp.Frontend",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/app.css"
+    }
+  ]
+}

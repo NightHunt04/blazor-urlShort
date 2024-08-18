@@ -1,0 +1,9 @@
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/WebApp.Frontend
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/appsettings.Development.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/appsettings.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/package-lock.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/package.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/WebApp.Frontend.dll
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/WebApp.Frontend.deps.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/WebApp.Frontend.runtimeconfig.json
+/home/anton/Desktop/c#/WebApp.Frontend/bin/Release/net8.0/publish/WebApp.Frontend.pdb

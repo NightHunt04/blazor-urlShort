@@ -1,0 +1,53 @@
+@rendermode InteractiveServer
+
+
+<div class="w-full h-full flex flex-col items-start justify-start px-2 md:px-5">
+    <h3 class="text-2xl md:text-3xl font-semibold">Shorten URL</h3>
+    <p class="text-gray-400 text-sm md:text-base">Original URL will be changed to short one</p>
+    <p class="text-gray-400 mt-8 md:mt-10 text-sm md:text-base">Enter the URL which is to be shortened</p>
+
+    <div class="flex items-center justify-center gap-2 md:gap-3 w-full md:w-[60%]">
+        <input @bind="InputURL" placeholder="Input URL" type="text" class="w-[70%] md:w-full bg-gray-200 text-sm md:text-base px-3 py-2 md:px-4 md:py-2 outline-none text-black rounded-md">
+        <button @onclick="() => handleURLShort(InputURL)" class="shadow-md text-sm md:text-base px-3 py-2 md:px-4 md:py-2 md:w-[15%] flex items-center justify-center bg-green-600 text-white font-semibold rounded-md hover:opacity-80 outline-none transition-all duration-200">
+            @if (!Loader) {
+                <p>Short it</p>
+            } else {
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            }
+            </button>
+    </div>
+
+    @if (GeneratedResultURL) {
+        <div class="flex flex-col items-start justify-start text-sm md:text-base mt-10 w-full md:w-[30%]">
+            <p class="text-green-500">Successfully generated URL</p>
+            <div class="flex items-start md:items-center justify-between gap-3 mt-3 w-full">
+                <p class="font-semibold">Generated URL: </p>
+                <p class="px-2 py-1 md:px-3 md:py-2 bg-green-600 rounded-md text-white">https://short.com/29und2</p>
+            </div>
+            <div class="flex items-start md:items-center justify-between gap-3 mt-3 w-full">
+                <p class="font-semibold">Original URL: </p>
+                <p class="ml-5 px-2 py-1 md:px-3 md:py-2 bg-gray-600 text-white rounded-md">@PrevInputURL</p>
+            </div>
+        </div>
+    }
+
+</div>
+
+@code {
+    private bool Loader { get; set; } = false;
+    private bool GeneratedResultURL { get; set; } = false;
+    private string InputURL { get; set; } = string.Empty;
+
+    private string PrevInputURL { get; set; } = string.Empty;
+
+    private async Task handleURLShort(string inputURL) {
+        PrevInputURL = inputURL;
+        Loader = true;
+        await Task.Delay(2000);
+        GeneratedResultURL = true;
+        Console.WriteLine(inputURL);
+        Loader = false;
+        InputURL = string.Empty;
+    } 
+
+}

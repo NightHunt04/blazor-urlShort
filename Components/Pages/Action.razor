@@ -1,0 +1,28 @@
+@inject SharedStateService SharedState
+@rendermode InteractiveServer
+@implements IDisposable
+
+
+<div class="w-full h-full flex flex-col items-center justify-center rounded-xl bg-[#fff] px-5 py-4 shadow-lg">
+    @switch(SharedState.ActiveComponent) {
+        case 1:
+            <ShortenURL />
+            break;
+        case 2:
+            <QRCodeGenerator />
+            break;
+        case 3:
+            <ViewAnalytics />
+            break;
+    }
+</div>
+
+@code {
+    protected override void OnInitialized() {
+        SharedState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose() {
+        SharedState.OnChange -= StateHasChanged;
+    }
+}

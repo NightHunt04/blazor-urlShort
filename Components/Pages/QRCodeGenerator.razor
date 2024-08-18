@@ -1,0 +1,90 @@
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+<div class="w-full h-full flex flex-col items-start justify-start px-2 md:px-5">
+    <h3 class="text-2xl md:text-3xl font-semibold">QR Code Generator</h3>
+    <p class="text-gray-400 text-sm md:text-base">Original URL will be in the form of QR code</p>
+    <p class="text-gray-400 mt-8 md:mt-10 text-sm md:text-base">Enter the URL of which the QR code is to be made</p>
+
+    <div class="flex items-center justify-center gap-2 md:gap-3 w-full md:w-[60%] text-sm md:text-base">
+        <input @bind="InputURL" placeholder="Input URL" type="text" class="w-[75%] md:w-[90%] bg-gray-200 px-3 py-2 md:px-4 md:py-2 outline-none text-black rounded-md">
+        <button @onclick="() => handleURLShort(InputURL)" class="shadow-md px-3 py-2 md:px-4 md:py-2 w-[25%] md:w-[10%] flex items-center justify-center bg-green-600 text-white font-semibold rounded-md hover:opacity-80 outline-none transition-all duration-200">
+            @if (!Loader) {
+                <p>Generate</p>
+            } else {
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            }
+            </button>
+    </div>
+
+    @if (GeneratedResult) {
+        <div class="flex flex-col items-start justify-start mt-6 md:mt-10 text-sm md:text-base w-full md:w-[30%]">
+            <p class="text-green-500">Successfully generated QR code</p>
+            <img src="data:image/png;base64,@qrCodeResult" alt="QR code" class="w-[300px] h-[300px] object-cover md:mt-1">
+            <p class="font-semibold mt-2">Input: <span class="text-gray-400">@PrevInputURL</span></p>
+        </div>
+    }
+
+</div>
+
+@code {
+    private string qrCodeResult { get; set; } = string.Empty;
+    private bool Loader { get; set; } = false;
+    private bool GeneratedResult { get; set; } = false;
+    private string InputURL { get; set; } = string.Empty;
+
+    private string PrevInputURL { get; set; } = string.Empty;
+
+    public class QrCodeResponse {
+        public string qrcode { get; set; }
+    }
+
+    private async Task FetchQRCodeAsync(string inputURL) {
+        var input = inputURL.Trim();
+        @* input = input.Replace(' ', '%20');
+        input = input.Replace('+', '%2B');
+        input = input.Replace('/', '%2F');
+        input = input.Replace(':', '%3A');
+        input = input.Replace('%', '%25');
+        input = input.Replace('$', '%24'); *@
+
+        var encodedInput = Uri.EscapeDataString(input);
+
+        Console.WriteLine(encodedInput);
+
+        var request = new HttpRequestMessage {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri("https://qr-code-generator153.p.rapidapi.com/QR_Code?data=" + encodedInput),
+            Headers = {
+                { "x-rapidapi-key", "7264c0698emsh8e04d51884fb66ep1a08f0jsnd21ad7509f71" },
+                { "x-rapidapi-host", "qr-code-generator153.p.rapidapi.com" },
+            },
+        };
+
+        try {
+            using var response = await Http.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            var responseData = await response.Content.ReadFromJsonAsync<QrCodeResponse>();
+            qrCodeResult = responseData?.qrcode;
+        } catch (Exception e) {
+            Console.WriteLine($"Error fetching QR code: {e.Message}");
+            qrCodeResult = "Error generating QR code";
+        }
+    }
+
+    private async Task handleURLShort(string inputURL) {
+        Loader = true;
+        
+        await FetchQRCodeAsync(inputURL);
+        PrevInputURL = inputURL;
+        await Task.Delay(5000);
+
+        Console.WriteLine(qrCodeResult);
+
+        GeneratedResult = true;
+        Console.WriteLine(inputURL);
+        Loader = false;
+        InputURL = string.Empty;
+    } 
+
+}
